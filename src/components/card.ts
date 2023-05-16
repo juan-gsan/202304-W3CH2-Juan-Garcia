@@ -46,7 +46,7 @@ export class Card extends Component {
             <div class="character__info">
               <ul class="list-unstyled">
                 <li>Edad: ${character.age}</li>
-                <li>
+                <li data-id="${character.name}" class="symbol-thumb">
                   Estado:
                   <i class="fas fa-thumbs-up"></i>
                 </li>

@@ -1,4 +1,4 @@
-# Week 3 - Challenge 1
+# Week 3 - Challenge 2
 
 ## GoT DOM
 

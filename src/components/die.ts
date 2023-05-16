@@ -10,12 +10,10 @@ export class Communication extends Component {
 
   generateTemplate(character: AllCharacters) {
     return `
-    <div class="comunications">
-    <p class="comunications__text display-1">${character.communicate}</p>
-    <img class="comunications__picture" src="img/${character.name.toLowerCase()}.jpg" alt="${
-      character.name
-    } ${character.house}" />
-  </div>
+      <li data-id="${character.name}" class="symbol-thumb">
+        Estado:
+        <i class="fas fa-thumbs-down"></i>
+      </li>
     `;
   }
 }
