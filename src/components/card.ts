@@ -1,14 +1,38 @@
-import { createCharacters } from '../data/createCharacters';
 import { Component } from './component';
+import { AllCharacters } from '../types/allCharacters';
 
 export class Card extends Component {
-  constructor(selector: string) {
+  constructor(selector: string, character: AllCharacters) {
     super(selector);
-    this.template = this.generateTemplate();
+    this.template = this.generateTemplate(character);
     this.render();
   }
 
   generateTemplate(character: AllCharacters) {
+    const renderDifferentClass = (character: AllCharacters) => {
+      if ('rulingYears' in character) {
+        return `
+  <li>Años de reinado: ${character.rulingYears.toLocaleString()}</li>`;
+      }
+
+      if ('weapon' in character) {
+        return `
+  <li>Arma: ${character.weapon}</li>
+  <li>Destreza: ${character.skills.toLocaleString()}</li>`;
+      }
+
+      if ('characterAdvised' in character) {
+        return `
+  <li>Asesora a: ${character.characterAdvised}</li>`;
+      }
+
+      if ('knight' in character) {
+        return `
+  <li>Sirve a: ${character.knight}</li>
+  <li>Peloteo: ${character.pelotismo.toLocaleString()}</li>`;
+      }
+    };
+
     return `
     <li class="character col">
         <div class="card character__card">
@@ -30,7 +54,7 @@ export class Card extends Component {
             </div>
             <div class="character__overlay">
               <ul class="list-unstyled">
-                
+                ${renderDifferentClass(character)}
               </ul>
               <div class="character__actions">
                 <button data-id="${
