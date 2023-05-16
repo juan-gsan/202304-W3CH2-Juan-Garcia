@@ -16,24 +16,24 @@ document.querySelector('.app')!.innerHTML = `
       ${htmlList}
     </ul>`;
 
-const handleDie = (element: HTMLButtonElement) => {
-  data.find((item) => item.name === element.dataset.id)!.endLife();
-};
+// Const handleDie = (element: HTMLButtonElement) => {
+//   data.find((item) => item.name === element.dataset.id)!.endLife();
+// };
 
-const handleSpeak = (element: HTMLButtonElement) => {
-  data.find((item) => item.name === element.dataset.id)!.saySentence();
-};
+// const handleSpeak = (element: HTMLButtonElement) => {
+//   data.find((item) => item.name === element.dataset.id)!.saySentence();
+// };
 
-const handleButtons = (event: Event) => {
-  const element = event.target as HTMLButtonElement;
-  if (element.classList.contains('die')) {
-    handleDie(element);
-  }
+// const handleButtons = (event: Event) => {
+//   const element = event.target as HTMLButtonElement;
+//   if (element.classList.contains('die')) {
+//     handleDie(element);
+//   }
 
-  if (element.classList.contains('speak')) {
-    handleSpeak(element);
-  }
-};
+//   if (element.classList.contains('speak')) {
+//     handleSpeak(element);
+//   }
+// };
 
 const buttons =
   document.querySelectorAll<HTMLButtonElement>('.character__action');

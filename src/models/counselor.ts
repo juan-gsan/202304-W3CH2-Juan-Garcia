@@ -1,7 +1,5 @@
+import { AllCharacters } from '../types/allCharacters.ts';
 import { Character } from './character.ts';
-import { Fighter } from './fighter.ts';
-import { King } from './king.ts';
-import { Squire } from './squire.ts';
 
 export class Counselor extends Character {
   characterAdvised;
@@ -11,7 +9,7 @@ export class Counselor extends Character {
     house: string,
     age: number,
     emoji: string,
-    characterAdvised: King | Fighter | Counselor | Squire
+    characterAdvised: AllCharacters
   ) {
     super(name, house, age, emoji);
     this.characterAdvised = characterAdvised;

@@ -1,43 +1,27 @@
-import { AllCharacters } from './types/allCharacters';
+import { AllCharacters } from '../types/allCharacters';
+import { Component } from './component';
 
-const renderDifferentClass = (character: AllCharacters) => {
-  if ('rulingYears' in character) {
-    return `
-  <li>Años de reinado: ${character.rulingYears.toLocaleString()}</li>`;
+export class Card extends Component {
+  constructor(selector: string) {
+    super(selector);
+    this.element = generateTemplate();
+    this.render();
   }
 
-  if ('weapon' in character) {
+  generateTemplate(character: AllCharacters) {
+
+    let cards = 
+
     return `
-  <li>Arma: ${character.weapon}</li>
-  <li>Destreza: ${character.skills.toLocaleString()}</li>`;
-  }
-
-  if ('characterAdvised' in character) {
-    return `
-  <li>Asesora a: ${character.characterAdvised}</li>`;
-  }
-
-  if ('knight' in character) {
-    return `
-  <li>Sirve a: ${character.knight}</li>
-  <li>Peloteo: ${character.pelotismo.toLocaleString()}</li>`;
-  }
-
-  let _never: never;
-  _never = character;
-};
-
-export const createTemplate = (
-  character: AllCharacters
-) => `<li class="character col">
+    <li class="character col">
         <div class="card character__card">
           <img src="./img/${character.name.toLowerCase()}.jpg" alt="${
-  character.name
-} ${character.house}" class="character__picture card-img-top" />
+      character.name
+    } ${character.house}" class="character__picture card-img-top" />
           <div class="card-body">
             <h2 class="character__name card-title h4">${character.name} ${
-  character.house
-}</h2>
+      character.house
+    }</h2>
             <div class="character__info">
               <ul class="list-unstyled">
                 <li>Edad: ${character.age}</li>
@@ -64,4 +48,7 @@ export const createTemplate = (
           </div>
           <i class="${character.emoji}"></i>
         </div>
-      </li>`;
+      </li>
+    `;
+  }
+}
