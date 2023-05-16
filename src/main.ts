@@ -1,42 +1,15 @@
+import { Card } from './components/card';
+import { Communication } from './components/communication';
+import { List } from './components/list';
+import { createCharacters } from './data/createCharacters';
 import './style.css';
-import { createCharacters } from './data/createCharacters.ts';
-import { createTemplate } from './template.ts';
 
-const data = createCharacters();
+const charactersList = createCharacters();
 
-let htmlList = '';
+new List('.app-container');
 
-data.forEach((character) => {
-  htmlList += createTemplate(character);
+charactersList.forEach((character) => {
+  new Card('.characters-list', character);
 });
 
-document.querySelector('.app')!.innerHTML = `
-
-    <ul class="characters-list row list-unstyled">
-      ${htmlList}
-    </ul>`;
-
-const handleDie = (element: HTMLButtonElement) => {
-  data.find((item) => item.name === element.dataset.id)!.endLife();
-};
-
-const handleSpeak = (element: HTMLButtonElement) => {
-  data.find((item) => item.name === element.dataset.id)!.saySentence();
-};
-
-const handleButtons = (event: Event) => {
-  const element = event.target as HTMLButtonElement;
-  if (element.classList.contains('die')) {
-    handleDie(element);
-  }
-
-  if (element.classList.contains('speak')) {
-    handleSpeak(element);
-  }
-};
-
-const buttons =
-  document.querySelectorAll<HTMLButtonElement>('.character__action');
-buttons.forEach((button) => {
-  button.addEventListener('click', handleButtons);
-});
+new Communication('body');

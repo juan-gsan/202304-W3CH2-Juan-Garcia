@@ -2,9 +2,10 @@ import { Counselor } from '../models/counselor.ts';
 import { Fighter } from '../models/fighter.ts';
 import { King } from '../models/king.ts';
 import { Squire } from '../models/squire.ts';
+import { AllCharacters } from '../types/allCharacters.ts';
 
 export const createCharacters = () => {
-  const charactersContainer = [];
+  const charactersList: AllCharacters[] = [];
 
   const characterJoffrey = new King('Joffrey', 'Baratheon', 20, '👑', 5);
 
@@ -36,7 +37,7 @@ export const createCharacters = () => {
     10
   );
 
-  charactersContainer.push(
+  charactersList.push(
     characterJoffrey,
     characterJaime,
     characterDaenerys,
@@ -44,5 +45,5 @@ export const createCharacters = () => {
     characterBronn
   );
 
-  return charactersContainer;
+  return charactersList;
 };
