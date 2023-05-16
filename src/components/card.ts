@@ -1,17 +1,14 @@
-import { AllCharacters } from '../types/allCharacters';
+import { createCharacters } from '../data/createCharacters';
 import { Component } from './component';
 
 export class Card extends Component {
   constructor(selector: string) {
     super(selector);
-    this.element = generateTemplate();
+    this.template = this.generateTemplate();
     this.render();
   }
 
   generateTemplate(character: AllCharacters) {
-
-    let cards = 
-
     return `
     <li class="character col">
         <div class="card character__card">
@@ -33,7 +30,6 @@ export class Card extends Component {
             </div>
             <div class="character__overlay">
               <ul class="list-unstyled">
-                ${renderDifferentClass(character)}
                 
               </ul>
               <div class="character__actions">
